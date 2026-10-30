@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIGITAL PRISON</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="particles" id="particles"></div>
+
+  <header>
+    <div class="logo">DIGITAL<span> PRISON</span></div>
+    <div class="status"><span class="dot"></span> TIZIM FAOL</div>
+  </header>
+
+  <main>
+    <section id="welcome" class="screen active">
+      <div class="warning">⚠ MAXFIY TIZIM // KIRISH TAQIQLANGAN</div>
+      <div class="prison-icon">▣</div>
+      <h1>RAQAMLI <span>QAMOQXONA</span></h1>
+      <p class="subtitle">Sen tizim ichidasan. Erkinlikka faqat aqling yordamida erishasan.</p>
+
+      <div class="intro-box">
+        <p>5 ta xona. 5 ta jumboq. Bitta imkoniyat.</p>
+        <p>Har bir eshik ortida yangi sinov kutmoqda.</p>
+      </div>
+
+      <input id="playerName" type="text" placeholder="Ismingni kiriting..." maxlength="25">
+      <button id="startBtn" class="gold-btn">O‘YINNI BOSHLASH <span>➜</span></button>
+      <div class="small-note">OGOHLANTIRISH: Tizim sizning aqlingizni sinaydi.</div>
+    </section>
+
+    <section id="game" class="screen">
+      <div class="game-top">
+        <div>
+          <div class="muted">MAHBUS</div>
+          <strong id="displayName">O‘YINCHI</strong>
+        </div>
+        <div class="room-number">
+          <div class="muted">XONA</div>
+          <strong id="roomNumber">01 / 05</strong>
+        </div>
+        <div class="attempts">
+          <div class="muted">XATOLAR</div>
+          <strong id="mistakes">0</strong>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressBar"></div>
+      </div>
+
+      <div class="door-area">
+        <div class="door" id="door">
+          <div class="door-light"></div>
+          <div class="door-label">SEALED</div>
+          <div class="door-lock">▣</div>
+          <div class="door-code">ACCESS DENIED</div>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-tag" id="roomTag">01 — KIRISH XONASI</div>
+        <h2 id="questionTitle">Birinchi sinov</h2>
+        <p id="questionText"></p>
+
+        <div id="hint" class="hint hidden"></div>
+
+        <div class="answer-row">
+          <input id="answerInput" type="text" placeholder="Javobni kiriting...">
+          <button id="submitBtn" class="gold-btn">TEKSHIRISH</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+
+        <div class="room-actions">
+          <button id="hintBtn" class="text-btn">💡 ISHORA OLISH</button>
+          <span id="hintCount">Ishoralar: 2</span>
+        </div>
+      </div>
+
+      <div class="system-message" id="systemMessage">
+        > Tizim sizni kuzatmoqda...
+      </div>
+    </section>
+
+    <section id="ending" class="screen">
+      <div class="escape-symbol">✦</div>
+      <div class="warning">TIZIM HIMOYASI BUZILDI</div>
+      <h1>ERKINLIKKA <span>ERISHDING!</span></h1>
+      <p id="endingText"></p>
+
+      <div class="final-stats">
+        <div><strong id="finalMistakes">0</strong><span>XATOLAR</span></div>
+        <div><strong>5 / 5</strong><span>YECHILGAN XONA</span></div>
+      </div>
+
+      <button id="restartBtn" class="gold-btn">QAYTA O‘YNASH ↻</button>
+      <p class="credit">LOYIHA MUALLIFI: AKRAMJANOVA JADRA MARATOVNA</p>
+    </section>
+  </main>
+
+  <footer> DIGITAL PRISON <span> // </span> ESCAPE PROTOCOL v1.0 </footer>
+  <script src="script.js"></script>
+</body>
+</html>

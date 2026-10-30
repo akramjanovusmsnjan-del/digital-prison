@@ -1,0 +1,475 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  --gold: #ffd21f;
+  --light: #fff3a3;
+  --darkgold: #b88600;
+  --red: #ff3434;
+  --bg: #050505;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 35%, #211900 0%, #090909 42%, #020202 100%);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: .12;
+  background: repeating-linear-gradient(
+    transparent 0px,
+    transparent 3px,
+    #000 4px
+  );
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(105vh); opacity: 0; }
+  15% { opacity: .8; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+header {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 7%;
+  border-bottom: 1px solid #ffd21f30;
+}
+
+.logo {
+  font-family: Orbitron, sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.logo span, h1 span {
+  color: var(--gold);
+  text-shadow: 0 0 15px #ffd21f80;
+}
+
+.status {
+  color: #a8a8a8;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: #35ff85;
+  box-shadow: 0 0 10px #35ff85;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .3; }
+}
+
+main {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 125px);
+  display: grid;
+  place-items: center;
+  padding: 40px 18px;
+}
+
+.screen {
+  display: none;
+  width: min(720px, 100%);
+  text-align: center;
+  animation: appear .7s ease;
+}
+
+.screen.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.warning {
+  color: var(--red);
+  font-family: Orbitron, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  animation: blink 1.5s infinite;
+}
+
+.prison-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 25px;
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-size: 55px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 25px #ffd21f40, inset 0 0 20px #ffd21f20;
+  transform: rotate(45deg);
+}
+
+.prison-icon::first-letter {
+  transform: rotate(-45deg);
+}
+
+h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(25px, 5vw, 43px);
+  letter-spacing: 3px;
+  line-height: 1.4;
+}
+
+.subtitle {
+  margin: 15px auto 25px;
+  color: #aaa;
+  font-size: 19px;
+}
+
+.intro-box {
+  padding: 18px;
+  margin: 0 auto 25px;
+  max-width: 470px;
+  border: 1px solid #ffd21f40;
+  background: #ffd21f08;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+input {
+  display: block;
+  width: min(420px, 100%);
+  margin: 15px auto;
+  padding: 16px;
+  outline: none;
+  color: white;
+  background: #0c0c0c;
+  border: 1px solid #ffd21f60;
+  font: 17px 'Rajdhani', sans-serif;
+  text-align: center;
+}
+
+input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px #ffd21f30;
+}
+
+.gold-btn {
+  padding: 14px 27px;
+  border: 1px solid var(--gold);
+  background: linear-gradient(110deg, #b88600, #ffe66a, #b88600);
+  color: #090909;
+  font-family: Orbitron, sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gold-btn:hover {
+  box-shadow: 0 0 25px #ffd21f90;
+  transform: translateY(-3px);
+}
+
+.gold-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.small-note {
+  margin-top: 23px;
+  color: #666;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.game-top {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #ffd21f40;
+  background: #0a0a0a;
+}
+
+.muted {
+  color: #777;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.game-top strong {
+  color: var(--gold);
+  font-family: Orbitron, sans-serif;
+  font-size: 14px;
+}
+
+.progress-track {
+  height: 5px;
+  background: #252525;
+  margin: 15px 0 25px;
+}
+
+#progressBar {
+  width: 20%;
+  height: 100%;
+  background: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  transition: width .5s;
+}
+
+.door-area {
+  height: 225px;
+  display: grid;
+  place-items: center;
+  perspective: 700px;
+}
+
+.door {
+  position: relative;
+  width: 145px;
+  height: 205px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 4px solid #806000;
+  outline: 1px solid var(--gold);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 20px, #ffffff08 21px 22px),
+    linear-gradient(135deg, #28200a, #080808 55%, #302300);
+  box-shadow: 0 0 35px #ffd21f35, inset 0 0 30px #ffd21f12;
+  transition: .8s;
+}
+
+.door.open {
+  transform: rotateY(-70deg);
+  opacity: .2;
+}
+
+.door-light {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 15px var(--red);
+}
+
+.door-label, .door-code {
+  font: 10px Orbitron, sans-serif;
+  letter-spacing: 2px;
+  color: #aaa;
+}
+
+.door-lock {
+  font-size: 35px;
+  color: var(--gold);
+  text-shadow: 0 0 15px var(--gold);
+}
+
+.room-card {
+  padding: 25px;
+  border: 1px solid #ffd21f60;
+  background: linear-gradient(145deg, #101010, #080808);
+  box-shadow: 0 0 35px #000;
+}
+
+.room-tag {
+  color: var(--gold);
+  font: 11px Orbitron, sans-serif;
+  letter-spacing: 2px;
+}
+
+.room-card h2 {
+  margin: 13px 0;
+  font: 700 23px Orbitron, sans-serif;
+}
+
+.room-card p {
+  color: #bbb;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hint {
+  margin-top: 18px;
+  padding: 12px;
+  color: var(--light);
+  border: 1px dashed #ffd21f60;
+  background: #ffd21f0b;
+}
+
+.hidden { display: none; }
+
+.answer-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.answer-row input {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.answer-row button {
+  white-space: nowrap;
+  padding: 10px 15px;
+  font-size: 11px;
+}
+
+.feedback {
+  min-height: 28px;
+  margin-top: 13px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.feedback.good { color: #4dff9b; }
+.feedback.bad { color: var(--red); }
+
+.room-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  color: #777;
+  font-size: 13px;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  font: 600 13px 'Rajdhani', sans-serif;
+}
+
+.system-message {
+  color: #777;
+  text-align: left;
+  margin-top: 18px;
+  font: 12px monospace;
+}
+
+.escape-symbol {
+  font-size: 75px;
+  color: var(--gold);
+  text-shadow: 0 0 35px var(--gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.2); }
+}
+
+.final-stats {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.final-stats div {
+  min-width: 130px;
+  padding: 20px;
+  border: 1px solid #ffd21f60;
+  background: #ffd21f0b;
+}
+
+.final-stats strong, .final-stats span {
+  display: block;
+}
+
+.final-stats strong {
+  color: var(--gold);
+  font: 23px Orbitron, sans-serif;
+}
+
+.final-stats span {
+  margin-top: 8px;
+  color: #888;
+  font-size: 11px;
+}
+
+#endingText {
+  color: #bbb;
+  margin-top: 18px;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.credit {
+  color: #777;
+  font-size: 11px;
+  margin-top: 40px;
+  letter-spacing: 2px;
+}
+
+footer {
+  position: relative;
+  z-index: 6;
+  padding: 18px;
+  text-align: center;
+  border-top: 1px solid #ffd21f25;
+  color: #666;
+  font: 10px Orbitron, sans-serif;
+  letter-spacing: 2px;
+}
+
+footer span { color: var(--gold); }
+
+@media(max-width: 550px) {
+  header { padding: 18px 5%; }
+  .logo { font-size: 13px; }
+  .game-top { gap: 8px; padding: 10px; }
+  .game-top strong { font-size: 11px; }
+  .room-card { padding: 17px; }
+  .answer-row { flex-direction: column; }
+  .answer-row button { min-height: 45px; }
+  .room-card h2 { font-size: 19px; }
+  .room-card p { font-size: 16px; }
+}
